@@ -123,7 +123,6 @@ const UsersForm = () => {
             <div className="users-form-skills-container">
               <Label labelFor={'skill'}>Skill:</Label>
               <InputRef ref={inputSkill} name="skill" type="text" />
-
               <Label labelFor={'skill'}>Skill:</Label>
               <InputRef
                 ref={inputSkillValue}
@@ -131,9 +130,14 @@ const UsersForm = () => {
                 type="number"
                 condition={validateDataOnChange}
               />
-
               {skillsObj ? (
-                <p>{Object.entries(skillsObj).map(([key, val]) => `| ${key}: ${val} |`)}</p>
+                <ul>
+                  {Object.entries(skillsObj).map(([key, val]) => (
+                    <li>
+                      {key}: {val}
+                    </li>
+                  ))}
+                </ul>
               ) : (
                 ''
               )}

@@ -44,6 +44,13 @@ export const Wrapper = styled.div`
         padding: 15px;
         border-radius: 10px;
         margin: 10px 0 10px 0;
+
+        ul {
+          padding: 0;
+          li {
+            list-style: none;
+          }
+        }
       }
     }
   }
