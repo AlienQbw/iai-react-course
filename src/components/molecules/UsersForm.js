@@ -133,7 +133,7 @@ const UsersForm = () => {
               {skillsObj ? (
                 <ul>
                   {Object.entries(skillsObj).map(([key, val]) => (
-                    <li>
+                    <li key={key + val + Math.random()}>
                       {key}: {val}
                     </li>
                   ))}
