@@ -3,11 +3,12 @@ import styled from 'styled-components';
 export const ConfirmationBoxWrapper = styled.div`
   .confirmation-box-container {
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(69, 162, 158, 0.05);
     width: 100vw;
     height: 100vh;
 
     div {
+      border-radius: 10px;
       width: 300px;
       height: 300px;
       background-color: black;

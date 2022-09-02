@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(69, 162, 158, 0.05);
     .users-form-container {
       width: 500px;
       height: 600px;
