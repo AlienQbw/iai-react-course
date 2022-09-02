@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { users } from '../../../data/users';
+import useConfirm from '../../../hooks/useConfirm';
 import { Wrapper } from './Users.styles';
 
 const usersContext = createContext({});
@@ -18,8 +19,15 @@ const UsersProvider = ({ children }) => {
 
   const [userAddingFlag, setUserAddingFlag] = useState(false);
 
-  const deleteUser = (userToDelete) => {
-    if (handleConfirmationBox('Are you sure you want to delete the user?')) {
+  const { confirm } = useConfirm();
+  const showConfirm = async () => {
+    const isConfirmed = await confirm();
+    return isConfirmed;
+  };
+
+  const deleteUser = async (userToDelete) => {
+    const result = await showConfirm();
+    if (result) {
       if (usersData.includes(userToDelete)) {
         let tmpUsers = usersData.filter((user) => {
           if (user != userToDelete) {
@@ -57,8 +65,9 @@ const UsersProvider = ({ children }) => {
     userAddingFlag ? setUserAddingFlag((p) => !p) : setUserEditingFlag((p) => !p);
   };
 
-  const deleteAllUsers = () => {
-    if (handleConfirmationBox('Are you sure you want to delete all users?')) {
+  const deleteAllUsers = async () => {
+    const result = await showConfirm();
+    if (result) {
       setUsersData([]);
     }
   };
